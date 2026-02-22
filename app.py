@@ -1,14 +1,16 @@
 from flask import Flask, render_template, request, jsonify
 import os
 import json
-from dotenv import load_dotenv
 from openai import OpenAI
-
-# Charger variables d'environnement
-load_dotenv()
-
 app = Flask(__name__)
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+# Récupération clé production
+api_key = os.environ.get("OPENAI_API_KEY")
+
+if not api_key:
+    raise RuntimeError("OPENAI_API_KEY is missing in Render environment variables")
+
+client = OpenAI(api_key=api_key)
 
 # ==============================
 # PROFILS D'ÉMOTIONS
