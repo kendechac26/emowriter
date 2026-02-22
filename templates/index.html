@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <title>EmoWriter</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#d63384">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>EmoWriter</h1>
+
+      <!-- SECTION TEXTE -->
+      <div class="section">
+        <h3>✍️ Ton texte</h3>
+        <textarea id="input" placeholder="Écris ton texte..."></textarea>
+      </div>
+
+      <!-- SECTION STYLE -->
+      <div class="section">
+        <h3>🎭 Style</h3>
+
+        <label>Émotion :</label>
+        <select id="emotion">
+          <option value="neutre">Neutre</option>
+          <option value="empathique">Empathique</option>
+          <option value="professionnelle">Professionnelle</option>
+          <option value="académique">Académique</option>
+          <option value="poétique">Poétique</option>
+          <option value="dynamique">Dynamique</option>
+        </select>
+
+        <label>Registre :</label>
+        <select id="register">
+          <option value="courant">Courant</option>
+          <option value="soutenu">Soutenu</option>
+          <option value="litteraire">Littéraire</option>
+        </select>
+        <br /><br />
+
+        <label>
+          <input type="checkbox" id="dissertation-mode" />
+          Mode dissertation
+        </label>
+      </div>
+
+      <!-- SECTION TRADUCTION -->
+      <div class="section">
+        <h3>🌍 Traduction (optionnel)</h3>
+
+        <label><input type="checkbox" value="Anglais" /> Anglais</label>
+        <label><input type="checkbox" value="Espagnol" /> Espagnol</label>
+        <label><input type="checkbox" value="Allemand" /> Allemand</label>
+      </div>
+
+      <!-- BOUTON -->
+      <button class="main-btn" onclick="editText()">✨ Générer</button>
+
+      <!-- RESULTATS -->
+      <div id="result-container">
+
+  <div class="result-block fade-in">
+    <h3>🌍 Langue détectée</h3>
+    <div id="detected-language"></div>
+  </div>
+
+  <div class="comparison-container fade-in">
+    <div class="comparison-box">
+      <h3>Avant</h3>
+      <div id="original-text"></div>
+    </div>
+
+    <div class="comparison-box">
+      <h3>Après</h3>
+      <div id="corrected-text"></div>
+    </div>
+  </div>
+
+  <div id="translations" class="result-block fade-in"></div>
+
+</div>
+
+  <!-- LOADER -->
+  <div id="loader-overlay">
+    <div class="loader"></div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="/static/script.js"></script>
+
+  </body>
+</html>

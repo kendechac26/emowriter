@@ -1,0 +1,1 @@
+dissertation_mode = data.get("dissertationMode", False)
